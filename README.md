@@ -6,13 +6,26 @@ This repository contains the source code of the paper: Reinforced Anchor Knowled
 
 ## Dataset:
 
-The original data we used is from the public news dataset : [MIND](https://msnews.github.io).
+The original data we used is from the public news dataset : [MIND](https://msnews.github.io). We build an item2item dataset based on the method in the paper.
 
-We ...
 
 ####Files in data folder:
 
- 
+-    `./data/`
+     -   `kg/`
+         - `kg.tsv: ` knowledge graph triples from Wikidata;
+         - `entity2id.tsv` entity label to index;
+         - `relation2id.tsv` relation label to index;
+         - `entity2vec.vec` 100d entity embedding from TransE;
+         - `relation2vec.vec` 100d relation embedding from TransE;
+     -   `./mind/`
+            - `doc_embedding.tsv: ` 768d document embedding from sentence-bert;
+            - `doc_entity.tsv` document \t entities
+            - `train.tsv` item2item train data
+            - `val.tsv` item2item val data
+            - `test.tsv` item2item test data
+            - `warmup_train.tsv` warm up training data
+            - `warmup_test.tsv` warm up testing data
 
 ## Requeirements:
 
@@ -25,4 +38,4 @@ networkx = 2.5
 
 ## How to run the code:
 
-    $ python ./src/main.py 
+    $ python ./main.py --config config.yaml
